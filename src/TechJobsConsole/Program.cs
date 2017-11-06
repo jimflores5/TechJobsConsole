@@ -56,7 +56,7 @@ namespace TechJobsConsole
 
                     // What is their search term?
                     Console.WriteLine("\nSearch term: ");
-                    string searchTerm = Console.ReadLine();
+                    string searchTerm = Console.ReadLine().ToLower();  //Collects input and changes all letters to lowercase.
 
                     List<Dictionary<string, string>> searchResults;
 
@@ -65,7 +65,6 @@ namespace TechJobsConsole
                     {
                         searchResults = JobData.FindByValue(searchTerm);
                         PrintJobs(searchResults);
-                        //Console.WriteLine("Search all fields not yet implemented.");
                     }
                     else
                     {

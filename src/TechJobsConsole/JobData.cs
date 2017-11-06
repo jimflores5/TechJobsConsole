@@ -47,7 +47,7 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                string aValue = row[column];
+                string aValue = row[column].ToLower(); //Collects value of row[key] and changes all letters to lowercase.
 
                 if (aValue.Contains(value))
                 {
@@ -71,12 +71,12 @@ namespace TechJobsConsole
                 jobSearch = AllJobs[x];
                 foreach (KeyValuePair<string, string> item in jobSearch)
                 {
-                    string aValue = item.Value;
+                    string aValue = item.Value.ToLower(); //Collects key value item and changes all letters to lowercase.
 
                     if (aValue.Contains(searchTerm))
                     {
                         jobs.Add(jobSearch);
-                        break;
+                        break;                  //Exit out of current foreach step the first time the searchTerm is found.
                     }
                 }
 
