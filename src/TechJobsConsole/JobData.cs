@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -14,7 +15,13 @@ namespace TechJobsConsole
         public static List<Dictionary<string, string>> FindAll()
         {
             LoadData();
-            return AllJobs;
+             var allJobsCopy = new List<Dictionary<string,string>>(AllJobs); //Make a copy of the AllJobs list of dictionaries.
+                                                                             //If allJobsCopy gets altered, this will NOT affect the original data.
+
+            //var roAllJobs = AllJobs.AsReadOnly();
+            //roAllJobs[0] = AllJobs[5];  //This line will not execute, since roAJ is read only.  However, roAJ cannot be returned! It is no longer seen as L<D<S,s>>.
+
+            return allJobsCopy;
         }
 
         /*
